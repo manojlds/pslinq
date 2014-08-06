@@ -27,4 +27,5 @@ String reverse:
 
 ```powershell
 "abcdefg" -split '' | Aggregate-List { $input + $acc }
+#gfedcba
 ```
