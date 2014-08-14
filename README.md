@@ -29,3 +29,21 @@ String reverse:
 "abcdefg" -split '' | Aggregate-List { $input + $acc }
 #gfedcba
 ```
+
+**All-List**
+
+Examples:
+
+```powershell
+1..10 | All-List { $input -le 6 }
+#False
+```
+
+**Any-List**
+
+Examples:
+
+```powershell
+1..10 | Any-List { $input -eq 5 }
+#True
+```
