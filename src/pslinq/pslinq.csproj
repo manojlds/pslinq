@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AggregateList.cs" />
+    <Compile Include="AnyList.cs" />
     <Compile Include="AllList.cs" />
     <Compile Include="PsLinq.cs">
       <SubType>Component</SubType>
