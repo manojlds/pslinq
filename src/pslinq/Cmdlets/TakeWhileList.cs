@@ -1,41 +1,27 @@
 using System.Collections.Generic;
 using System.Management.Automation;
 
-namespace pslinq
+namespace pslinq.Cmdlets
 {
-    [Cmdlet("All", "List")]
-    public class AllList : Cmdlet
+    [Cmdlet("TakeWhile", "List")]
+    public class TakeWhileList : Cmdlet
     {
-        private bool _output;
-
         [Parameter(Mandatory = true, ValueFromPipeline = true, ValueFromPipelineByPropertyName = true)]
         public object Input { get; set; }
 
         [Parameter(Position = 0, Mandatory = true)]
         public ScriptBlock ScriptBlock { get; set; }
 
-        protected override void BeginProcessing()
-        {
-            _output = true;
-        }
-
         protected override void ProcessRecord()
         {
-            if (!_output) return;
-
             var output = ScriptBlock.InvokeWithContext(null, new List<PSVariable>
             {
                 new PSVariable("input", Input),
             })[0];
-            
-            if (output.ToString() == "True") return;
-            
-            _output = false;
-        }
 
-        protected override void EndProcessing()
-        {
-            WriteObject(_output);
+            if(output.ToString() != "True") throw new PipelineStoppedException();
+
+            WriteObject(Input);
         }
     }
 }

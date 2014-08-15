@@ -1,36 +1,34 @@
 using System.Collections.Generic;
 using System.Management.Automation;
 
-namespace pslinq
+namespace pslinq.Cmdlets
 {
-    [Cmdlet("Any", "List")]
-    public class AnyList : Cmdlet
+    [Cmdlet("Aggregate", "List")]
+    public class AggregateList : Cmdlet
     {
-        private bool _output;
+        private object _output;
 
         [Parameter(Mandatory = true, ValueFromPipeline = true, ValueFromPipelineByPropertyName = true)]
         public object Input { get; set; }
-
+        
         [Parameter(Position = 0, Mandatory = true)]
         public ScriptBlock ScriptBlock { get; set; }
+        
+        [Parameter(Position = 1, Mandatory = false)]
+        public object Seed { get; set; }
 
         protected override void BeginProcessing()
         {
-            _output = false;
+            _output = Seed;
         }
 
         protected override void ProcessRecord()
         {
-            if (_output) return;
-
-            var output = ScriptBlock.InvokeWithContext(null, new List<PSVariable>
+            _output = ScriptBlock.InvokeWithContext(null, new List<PSVariable>
             {
                 new PSVariable("input", Input),
+                new PSVariable("acc", _output, ScopedItemOptions.AllScope)
             })[0];
-            
-            if (output.ToString() != "True") return;
-            
-            _output = true;
         }
 
         protected override void EndProcessing()
