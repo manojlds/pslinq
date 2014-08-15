@@ -44,10 +44,12 @@
     <Compile Include="Cmdlets\AggregateList.cs" />
     <Compile Include="Cmdlets\AllList.cs" />
     <Compile Include="Cmdlets\AnyList.cs" />
+    <Compile Include="Cmdlets\FirstList.cs" />
     <Compile Include="Cmdlets\SkipList.cs" />
     <Compile Include="Cmdlets\SkipWhileList.cs" />
     <Compile Include="Cmdlets\TakeList.cs" />
     <Compile Include="Cmdlets\TakeWhileList.cs" />
+    <Compile Include="Error.cs" />
     <Compile Include="PsLinq.cs">
       <SubType>Component</SubType>
     </Compile>
