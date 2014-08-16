@@ -50,6 +50,7 @@
     <Compile Include="Cmdlets\SkipWhileList.cs" />
     <Compile Include="Cmdlets\TakeList.cs" />
     <Compile Include="Cmdlets\TakeWhileList.cs" />
+    <Compile Include="Cmdlets\ZipList.cs" />
     <Compile Include="Error.cs" />
     <Compile Include="PsLinq.cs">
       <SubType>Component</SubType>
