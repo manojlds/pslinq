@@ -7,12 +7,31 @@ LINQ for Powershell
 The following cmdlets are available as of now:
 
 [Aggregate-List](#aggregate-list)
+
 [All-List](#all-list)
+
 [Any-List](#any-list)
+
 [First-List](#first-list)
+
 [Intersect-List](#intersect-list)
+
 [SelectMany-List](#selectmany-list)
+
 [Single-List](#single-list)
+
+[Skip-List](#skip-list)
+
+[SkipWhile-List](#skipwhile-list)
+
+[Take-List](#take-list)
+
+[TakeWhile-List](#takewhile-list)
+
+[Union-List](#union-list)
+
+[Zip-List](#zip-list)
+
 
 ###Aggregate-List
 
@@ -106,4 +125,76 @@ Example:
 #Throws exception
 1..10 | Single-List { $input -eq 11 }
 #Throws exception
+```
+
+###Skip-List
+
+Example:
+
+```powershell
+1..10 | Skip-List 6
+#7
+#8
+#9
+#10
+```
+
+###SkipWhile-List
+
+Example:
+
+```powershell
+1..10 | SkipWhile-List { $input -le 8 }
+#9
+#10
+```
+
+###Take-List
+
+Example:
+
+```powershell
+1..10 | Take-List 3
+#1
+#2
+#3
+
+1..10 | Skip-List 3 | Take-List 3
+#4
+#5
+#6
+```
+
+###TakeWhile-List
+
+Example:
+
+```powershell
+1..10 | TakeWhile-List { $input -lt 4 }
+#1
+#2
+#3
+```
+
+###Union-List
+
+Example:
+
+```powershell
+"a", "b", "c" | Union-List "c", "d"
+#a
+#b
+#c
+#d
+```
+
+###Zip-List
+
+Example:
+
+```powershell
+"a", "b", "c" | Zip-List $(1..4) { $first + $second }
+#a1
+#b2
+#c3
 ```
