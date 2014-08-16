@@ -3,14 +3,22 @@ using System.Management.Automation;
 
 namespace pslinq.Cmdlets
 {
-    [Cmdlet("First", "List")]
-    public class FirstList : Cmdlet
+    [Cmdlet("Single", "List")]
+    public class SingleList : Cmdlet
     {
+        private bool _matched;
+        private object _output;
+
         [Parameter(Mandatory = true, ValueFromPipeline = true, ValueFromPipelineByPropertyName = true)]
         public object Input { get; set; }
 
         [Parameter(Position = 0, Mandatory = true)]
         public ScriptBlock ScriptBlock { get; set; }
+
+        protected override void BeginProcessing()
+        {
+            _matched = false;
+        }
 
         protected override void ProcessRecord()
         {
@@ -20,15 +28,18 @@ namespace pslinq.Cmdlets
             })[0];
 
             if (output.ToString() != "True") return;
+            
+            if (_matched) throw Error.MoreThanOneMatch();
 
-            WriteObject(Input);
-
-            Error.StopUpstreamCommandsException(this);
+            _matched = true;
+            _output = Input;
         }
 
         protected override void EndProcessing()
         {
-            throw Error.NoMatch();
+            if(!_matched) throw Error.NoMatch();
+
+            WriteObject(_output);
         }
     }
 }

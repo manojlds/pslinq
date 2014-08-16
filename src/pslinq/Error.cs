@@ -16,6 +16,11 @@ namespace pslinq
             return new InvalidOperationException("No match found");
         }
 
+        internal static InvalidOperationException MoreThanOneMatch()
+        {
+            return new InvalidOperationException("More than one match found");
+        }
+
         internal static Exception StopUpstreamCommandsException(Cmdlet cmdlet)
         {
             var stopUpstreamCommandsException = (Exception) Activator.CreateInstance(StopUpstreamCommandsExceptionType,
