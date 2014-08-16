@@ -19,7 +19,7 @@ namespace pslinq.Cmdlets
                 new PSVariable("input", Input),
             })[0];
 
-            if(output.ToString() != "True") throw new PipelineStoppedException();
+            if (output.ToString() != "True") throw Error.StopUpstreamCommandsException(this);
 
             WriteObject(Input);
         }

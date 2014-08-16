@@ -23,7 +23,7 @@ namespace pslinq.Cmdlets
             WriteObject(Input);
             
             _noOfItemsProcessed++;
-            if(_noOfItemsProcessed == Number) throw new PipelineStoppedException();
+            if (_noOfItemsProcessed == Number) throw Error.StopUpstreamCommandsException(this);
         }
     }
 }

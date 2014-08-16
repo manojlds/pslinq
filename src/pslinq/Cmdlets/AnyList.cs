@@ -21,16 +21,15 @@ namespace pslinq.Cmdlets
 
         protected override void ProcessRecord()
         {
-            if (_output) return;
-
             var output = ScriptBlock.InvokeWithContext(null, new List<PSVariable>
             {
                 new PSVariable("input", Input),
             })[0];
             
             if (output.ToString() != "True") return;
-            
-            _output = true;
+
+            WriteObject(_output);
+            Error.StopUpstreamCommandsException(this);
         }
 
         protected override void EndProcessing()

@@ -31,6 +31,8 @@ namespace pslinq.Cmdlets
             if (output.ToString() == "True") return;
             
             _output = false;
+            WriteObject(_output);
+            Error.StopUpstreamCommandsException(this);
         }
 
         protected override void EndProcessing()

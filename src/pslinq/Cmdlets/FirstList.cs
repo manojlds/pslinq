@@ -1,5 +1,8 @@
+using System;
 using System.Collections.Generic;
 using System.Management.Automation;
+using System.Management.Automation.Internal;
+using System.Reflection;
 
 namespace pslinq.Cmdlets
 {
@@ -22,12 +25,13 @@ namespace pslinq.Cmdlets
             if (output.ToString() != "True") return;
 
             WriteObject(Input);
-            throw new PipelineStoppedException();
+
+            Error.StopUpstreamCommandsException(this);
         }
 
         protected override void EndProcessing()
         {
-            Error.NoMatch();
+            throw Error.NoMatch();
         }
     }
 }
