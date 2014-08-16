@@ -2,11 +2,14 @@
 
 LINQ for Powershell
 
-###Available cmdlets
+##Available cmdlets
 
 The following cmdlets are available as of now:
 
-**Aggregate-List**
+[Aggregate-List](#aggregate-list)
+
+
+###Aggregate-List###
 
 Examples:
 
