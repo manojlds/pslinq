@@ -29,7 +29,7 @@ namespace pslinq
                 new Object[] {(InternalCommand) cmdlet},
                 null
                 );
-            throw stopUpstreamCommandsException;
+            return stopUpstreamCommandsException;
         }
     }
 }

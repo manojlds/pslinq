@@ -32,7 +32,7 @@ namespace pslinq.Cmdlets
             
             _output = false;
             WriteObject(_output);
-            Error.StopUpstreamCommandsException(this);
+            throw Error.StopUpstreamCommandsException(this);
         }
 
         protected override void EndProcessing()

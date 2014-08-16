@@ -23,7 +23,7 @@ namespace pslinq.Cmdlets
 
             WriteObject(Input);
 
-            Error.StopUpstreamCommandsException(this);
+            throw Error.StopUpstreamCommandsException(this);
         }
 
         protected override void EndProcessing()
