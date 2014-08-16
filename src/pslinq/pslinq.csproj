@@ -46,6 +46,7 @@
     <Compile Include="Cmdlets\AnyList.cs" />
     <Compile Include="Cmdlets\FirstList.cs" />
     <Compile Include="Cmdlets\IntersectList.cs" />
+    <Compile Include="Cmdlets\SelectManyList.cs" />
     <Compile Include="Cmdlets\SingleList.cs" />
     <Compile Include="Cmdlets\SkipList.cs" />
     <Compile Include="Cmdlets\SkipWhileList.cs" />
