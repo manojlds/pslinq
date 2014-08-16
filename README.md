@@ -7,9 +7,14 @@ LINQ for Powershell
 The following cmdlets are available as of now:
 
 [Aggregate-List](#aggregate-list)
+[All-List](#all-list)
+[Any-List](#any-list)
+[First-List](#first-list)
+[Intersect-List](#intersect-list)
+[SelectMany-List](#selectmany-list)
+[Single-List](#single-list)
 
-
-###Aggregate-List###
+###Aggregate-List
 
 Examples:
 
@@ -33,7 +38,7 @@ String reverse:
 #gfedcba
 ```
 
-**All-List**
+###All-List
 
 Examples:
 
@@ -42,11 +47,63 @@ Examples:
 #False
 ```
 
-**Any-List**
+###Any-List
 
 Examples:
 
 ```powershell
 1..10 | Any-List { $input -eq 5 }
 #True
+```
+
+###First-List
+
+Examples:
+
+```powershell
+1..10 | First-List { $input -eq 5 }
+#5
+1..10 | First-List { $input -eq 11 }
+#Throws exception
+```
+
+###Intersect-List
+
+Example:
+
+```powershell
+1..10 | Intersect-List $(5..15)
+#5
+#6
+#7
+#8
+#9
+#10
+```
+
+###SelectMany-List
+
+Example:
+
+```powershell
+"abc", "def" | SelectMany-List { $input.ToCharArray() }
+#a
+#b
+#c
+#d
+#e
+#f
+```
+
+###Single-List
+
+Example:
+
+```powershell
+1..10 | Single-List { $input -eq 5 }
+#5
+1..10 | Single-List { $input -ge 5 }
+#Throws exception
+1..10 | Single-List { $input -eq 11 }
+#Throws exception
 ```
