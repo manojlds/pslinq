@@ -1,6 +1,6 @@
 #pslinq
 
-LINQ for Powershell
+LINQ for Powershell.
 
 ##Available cmdlets
 
@@ -11,6 +11,8 @@ The following cmdlets are available as of now:
 [All-List](#all-list)
 
 [Any-List](#any-list)
+
+[Except-List](#except-list)
 
 [First-List](#first-list)
 
@@ -73,6 +75,20 @@ Examples:
 ```powershell
 1..10 | Any-List { $input -eq 5 }
 #True
+```
+
+###Except-List
+
+Examples:
+
+```powershell
+1..10 | Except-List 1,3,5,7
+#2
+#4
+#6
+#8
+#9
+#10
 ```
 
 ###First-List
