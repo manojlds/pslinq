@@ -18,6 +18,8 @@ The following cmdlets are available as of now:
 
 [Intersect-List](#intersect-list)
 
+[Repeat-List](#Repeat-list)
+
 [SelectMany-List](#selectmany-list)
 
 [Single-List](#single-list)
@@ -114,6 +116,20 @@ Example:
 #8
 #9
 #10
+```
+
+###Repeat-List
+
+Example:
+
+```powershell
+1..3 | Repeat-List 2
+#1
+#1
+#2
+#2
+#3
+#3
 ```
 
 ###SelectMany-List
