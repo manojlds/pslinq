@@ -36,7 +36,9 @@ The following cmdlets are available as of now:
 
 [Zip-List](#zip-list)
 
-Based on [MoreLinq](https://code.google.com/p/morelinq/wiki/OperatorsOverview)
+Based on [MoreLinq](https://code.google.com/p/morelinq/wiki/OperatorsOverview):
+
+[TakeEvery-List](#takeevery-list)
 
 
 ###Aggregate-List
@@ -236,4 +238,17 @@ Example:
 #a
 #bb
 #ccc
+```
+
+##Based on MoreLinq:
+
+###TakeEvery-List
+
+```powershell
+1..10 | TakeEvery-List 2
+#2
+#4
+#6
+#8
+#10
 ```
