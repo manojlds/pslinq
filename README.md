@@ -229,4 +229,9 @@ Example:
 #a1
 #b2
 #c3
+
+"a", "b", "c" | Zip-List $(1..3) { $first * $second }
+#a
+#bb
+#ccc
 ```
