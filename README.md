@@ -36,6 +36,8 @@ The following cmdlets are available as of now:
 
 [Zip-List](#zip-list)
 
+Based on [MoreLinq](https://code.google.com/p/morelinq/wiki/OperatorsOverview)
+
 
 ###Aggregate-List
 

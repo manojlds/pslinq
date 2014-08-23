@@ -57,6 +57,7 @@
     <Compile Include="Cmdlets\UnionList.cs" />
     <Compile Include="Cmdlets\ZipList.cs" />
     <Compile Include="Error.cs" />
+    <Compile Include="MoreLinqCmdlets\TakeEveryList.cs" />
     <Compile Include="PsLinq.cs">
       <SubType>Component</SubType>
     </Compile>
