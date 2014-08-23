@@ -18,7 +18,7 @@ The following cmdlets are available as of now:
 
 [Intersect-List](#intersect-list)
 
-[Repeat-List](#Repeat-list)
+[Repeat-List](#repeat-list)
 
 [SelectMany-List](#selectmany-list)
 
